@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco"
+    tools:context=".MainActivity">
+
+
+    <View
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/red"
+        android:alpha="0.4"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:src="@drawable/amucss"
+        android:id="@+id/imageView"
+        android:layout_alignBottom="@+id/textClock"
+        android:layout_alignEnd="@+id/textInputLayout2"
+        android:layout_marginBottom="13dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textInputLayout"
+        android:textColorHint="@color/login"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/CampoTextoPurpura"
+        android:id="@+id/textInputLayout2">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/login"
+            android:singleLine="true"
+            android:hint="@string/usuario" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnsignin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp"
+        app:passwordToggleEnabled="true"
+        android:textColorHint="@color/login"
+        android:theme="@style/CampoTextoPurpura"
+        android:id="@+id/textInputLayout">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/login"
+            android:singleLine="true"
+            android:hint="@string/password" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@color/login"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:text="@string/login"
+        android:textSize="20sp"
+        android:id="@+id/btnsignin"
+        android:layout_marginBottom="27dp"
+        android:layout_above="@+id/textView4"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Asociación Mexicana de Uniones de Crédito del Sector Social (AMUCSS). Versión - Beta"
+        android:textColor="@color/negro"
+        android:alpha="0.9"
+        android:id="@+id/textView4"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="41dp"
+        android:layout_alignRight="@+id/btnsignin"
+        android:layout_alignEnd="@+id/btnsignin"
+        android:layout_alignLeft="@+id/btnsignin"
+        android:layout_alignStart="@+id/btnsignin" />
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/negro"
+        android:textSize="25sp"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/textInputLayout2"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
