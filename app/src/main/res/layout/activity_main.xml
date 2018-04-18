@@ -87,11 +87,40 @@
         android:id="@+id/textView4"
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="41dp"
         android:layout_alignRight="@+id/btnsignin"
         android:layout_alignEnd="@+id/btnsignin"
         android:layout_alignLeft="@+id/btnsignin"
         android:layout_alignStart="@+id/btnsignin" />
+
+    <TextView
+        android:id="@+id/txt_nuevo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView4"
+        android:layout_alignEnd="@+id/textClock"
+        android:layout_alignStart="@+id/btnsignin"
+        android:layout_marginEnd="45dp"
+        android:gravity="center"
+        android:text="@string/cuenta"
+        android:textAlignment="textEnd"
+        android:textColor="@color/negro" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txt_nuevo"
+        android:layout_alignBottom="@+id/txt_nuevo"
+        android:layout_alignStart="@+id/textClock"
+        android:layout_marginStart="35dp"
+        android:gravity="center"
+        android:text="@string/registro"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:id="@+id/txt_registro"
+        android:layout_alignEnd="@+id/btnsignin" />
 
     <TextClock
         android:id="@+id/textClock"
