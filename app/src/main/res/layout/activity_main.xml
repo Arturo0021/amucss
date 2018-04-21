@@ -1,136 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/blanco"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:fitsSystemWindows="true"
+        android:layout_height="192dp"
+        android:layout_width="match_parent">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:toolbarId="@+id/toolbar"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
+            app:contentScrim="?attr/colorPrimary">
+
+            <ImageView
+                android:id="@+id/app_bar_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/inicio"
+                android:scaleType="centerCrop" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent">
 
 
-    <View
-        android:id="@+id/title"
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/red"
-        android:alpha="0.4"
-        android:layout_alignParentTop="true" />
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+        android:id="@+id/nestedScrollView">
 
-    <ImageView
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:src="@drawable/amucss"
-        android:id="@+id/imageView"
-        android:layout_alignBottom="@+id/textClock"
-        android:layout_alignEnd="@+id/textInputLayout2"
-        android:layout_marginBottom="13dp" />
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textInputLayout"
-        android:textColorHint="@color/login"
-        android:layout_centerHorizontal="true"
-        android:theme="@style/CampoTextoPurpura"
-        android:id="@+id/textInputLayout2">
-
-        <EditText
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/login"
-            android:singleLine="true"
-            android:hint="@string/usuario" />
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            tools:context=".Registro_Activity">
 
-    </android.support.design.widget.TextInputLayout>
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:text="@string/esp"
+                android:backgroundTint="@color/amarillo"
+                />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnsignin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp"
-        app:passwordToggleEnabled="true"
-        android:textColorHint="@color/login"
-        android:theme="@style/CampoTextoPurpura"
-        android:id="@+id/textInputLayout">
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/button3"
+                android:text="@string/nah"
+                android:backgroundTint="@color/rojonaranja"
+                />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textColor="@color/login"
-            android:singleLine="true"
-            android:hint="@string/password" />
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/button4"
+                android:text="@string/oto"
+                android:backgroundTint="@color/azul"
+                />
 
-    </android.support.design.widget.TextInputLayout>
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/button5"
+                android:text="@string/mix"
+                android:backgroundTint="@color/morado"
+                />
 
-    <Button
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:background="@color/login"
-        android:textColor="@android:color/white"
-        android:gravity="center"
-        android:text="@string/login"
-        android:textSize="20sp"
-        android:id="@+id/btnsignin"
-        android:layout_marginBottom="27dp"
-        android:layout_above="@+id/textView4"
-        android:layout_centerHorizontal="true" />
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/button6"
+                android:text="@string/zap"
+                android:backgroundTint="@color/verde"
+                />
 
-    <TextView
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/nv"
+                android:layout_marginTop="64dp"
+                android:layout_toStartOf="@+id/button2"
+                />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/cl"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_alignEnd="@+id/button7"
+                android:layout_marginEnd="41dp"
+                />
+
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fl_salir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Asociación Mexicana de Uniones de Crédito del Sector Social (AMUCSS). Versión - Beta"
-        android:textColor="@color/negro"
-        android:alpha="0.9"
-        android:id="@+id/textView4"
-        android:gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="41dp"
-        android:layout_alignRight="@+id/btnsignin"
-        android:layout_alignEnd="@+id/btnsignin"
-        android:layout_alignLeft="@+id/btnsignin"
-        android:layout_alignStart="@+id/btnsignin" />
-
-    <TextView
-        android:id="@+id/txt_nuevo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView4"
-        android:layout_alignEnd="@+id/textClock"
-        android:layout_alignStart="@+id/btnsignin"
-        android:layout_marginEnd="45dp"
-        android:gravity="center"
-        android:text="@string/cuenta"
-        android:textAlignment="textEnd"
-        android:textColor="@color/negro" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txt_nuevo"
-        android:layout_alignBottom="@+id/txt_nuevo"
-        android:layout_alignStart="@+id/textClock"
-        android:layout_marginStart="35dp"
-        android:gravity="center"
-        android:text="@string/registro"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
-        android:id="@+id/txt_registro"
-        android:layout_alignEnd="@+id/btnsignin" />
-
-    <TextClock
-        android:id="@+id/textClock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/negro"
-        android:textSize="25sp"
-        android:layout_marginBottom="40dp"
-        android:layout_above="@+id/textInputLayout2"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="top|right"
+        android:backgroundTint="@color/rojonaranja"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:fadeScrollbars="true"
+        android:saveEnabled="false"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:soundEffectsEnabled="false"
+        android:src="@android:drawable/ic_menu_revert"
+        android:verticalScrollbarPosition="defaultPosition"
+        android:visibility="visible"
+        app:backgroundTint="@color/rojonaranja"
+        app:fabSize="normal"
+        app:layout_anchor="@+id/nestedScrollView"
+        app:layout_anchorGravity="center_vertical|left"
+        app:useCompatPadding="false" />
 
 
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
