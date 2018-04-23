@@ -33,6 +33,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_EDAD = "Edad";
     public static final String COLUMN_EMAIL = "Email";
     public static final String COLUMN_SOCIOSMB = "Socio_Smb";
+    public static final String COLUMN_ACTIVO = "Activo";
+    public static final String COLUMN_FECHA = "Fecha";
+    public static final String COLUMN_TEXTO = "Texto";
 
 
     public DBHelper(Context context) {
@@ -43,11 +46,17 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         TablaUsuarios(sqLiteDatabase);
+        TablaIdiomas(sqLiteDatabase);
+        Tiempo_Usuario(sqLiteDatabase);
+        Table_Privacidad(sqLiteDatabase);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_USUARIOS);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_TIEMPOLAYOUT);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_AVISOPRIVACIDAD);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_IDIOMA);
     }
 
     public void TablaUsuarios(SQLiteDatabase db) {
@@ -73,7 +82,31 @@ public class DBHelper extends SQLiteOpenHelper {
                 "CREATE TABLE IF NOT EXISTS " + TABLE_IDIOMA
                     + "("
                         + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + COLUMN_NOMBRE + " VARCHAR, "
+                        + COLUMN_ACTIVO + " INTEGER "
                     + ");";
         db.execSQL(Table_Idiomas);
+    }
+
+    public void Tiempo_Usuario(SQLiteDatabase db) {
+        String Table_Usuarios =
+                "CREATE TABLE IF NOT EXISTS " + TABLE_TIEMPOLAYOUT
+                    + "("
+                        + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        + COLUMN_CLAVE + " INTEGER, "
+                        + COLUMN_FECHA + " VARCHAR "
+                    + ");";
+        db.execSQL(Table_Usuarios);
+    }
+
+    public void Table_Privacidad(SQLiteDatabase db) {
+        String Table_Privacidad =
+                "CREATE TABLE IF NOT EXISTS " + TABLE_AVISOPRIVACIDAD
+                + "("
+                    + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + COLUMN_TEXTO + " VARCHAR, "
+                    + COLUMN_ACTIVO + " INTEGER"
+                + ");";
+        db.execSQL(Table_Privacidad);
     }
 }
