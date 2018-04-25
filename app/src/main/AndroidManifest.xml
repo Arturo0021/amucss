@@ -20,6 +20,9 @@
             android:name=".Registro_Activity"
             android:label="@string/title_activity_registro_"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Lobby_Activity"
+            android:label="@string/title_activity_lobby_"></activity>
     </application>
 
 </manifest>

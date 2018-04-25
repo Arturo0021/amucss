@@ -1,6 +1,7 @@
 package com.amucss.mx.amucss;
 
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -8,12 +9,15 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -27,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     Button Mixteco; // Mixteco
     Button Zapoteco; // Zapoteco
     FloatingActionButton fl_salir; // Boton salir
+    com.amucss.mx.amucss.entities.Registro registro;
+    TextView txt_error;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Rota Vertical
 
         setContentView(R.layout.activity_main);
+        context = this;
 
         // Tendra un evento de intent
         Registro = (Button)findViewById(R.id.button1);
@@ -50,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             Otomi = (Button)findViewById(R.id.button5);
             Mixteco = (Button)findViewById(R.id.button6);
             Zapoteco = (Button)findViewById(R.id.button7);
+            txt_error = (TextView)findViewById(R.id.txt_error);
         // Simplemente Cierra la pantalla
         fl_salir = (FloatingActionButton)findViewById(R.id.fl_salir);
 
@@ -71,14 +80,13 @@ public class MainActivity extends AppCompatActivity {
                 builder.setMessage("Ingrese su Clave");
 
                 final EditText input = new EditText(MainActivity.this);
+                input.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.MATCH_PARENT);
                 input.setLayoutParams(lp);
                 builder.setView(input);
                 builder.setIcon(R.drawable.key);
-
-
 
                 builder.setPositiveButton("ACEPTAR",
                         new DialogInterface.OnClickListener() {
@@ -87,7 +95,22 @@ public class MainActivity extends AppCompatActivity {
                                 if(input.getText().toString().equals("") || input.getText().toString().equals(null)) {
                                     Toast.makeText(MainActivity.this, "Error Campo Clave Vacia", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(MainActivity.this, input.getText(), Toast.LENGTH_SHORT).show();
+                                    String clave = input.getText().toString();
+                                    try {
+
+                                        registro = com.amucss.mx.amucss.business.Registro.ConfirmClave(context,clave);
+                                        if(registro.getClave() == null) {
+                                            txt_error.setText("Clave Incorrecta Verifique Por Favor");
+                                        } else {
+                                            Intent intent = new Intent(MainActivity.this, Lobby_Activity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+
+                                    } catch (Exception e) {
+                                        e.getMessage();
+                                    }
+
                                 }
 
                             }
