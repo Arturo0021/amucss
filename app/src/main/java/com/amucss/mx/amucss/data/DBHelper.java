@@ -94,7 +94,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     + "("
                         + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + COLUMN_CLAVE + " INTEGER, "
-                        + COLUMN_FECHA + " VARCHAR "
+                        + COLUMN_FECHA + " VARCHAR, "
+                        + COLUMN_TEXTO + " VARCHAR "
                     + ");";
         db.execSQL(Table_Usuarios);
     }

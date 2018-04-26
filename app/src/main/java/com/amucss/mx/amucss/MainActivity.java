@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                                             txt_error.setText("Clave Incorrecta Verifique Por Favor");
                                         } else {
                                             Intent intent = new Intent(MainActivity.this, Lobby_Activity.class);
+                                            intent.putExtra("clave", registro.getClave());
                                             startActivity(intent);
                                             finish();
                                         }

@@ -34,4 +34,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="tomin">Escribe el Nombre de la Alcancia</string>
+    <string name="tominpuerco">TOMIN</string>
+    <string name="siguiente">Siguiente</string>
 </resources>

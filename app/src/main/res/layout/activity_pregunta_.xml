@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.amucss.mx.amucss.Lobby_Activity">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="161dp"
+        android:id="@+id/textInputLayout"
+        android:layout_marginTop="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textInputLayout"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="34dp"
+            android:layout_marginStart="57dp"
+            android:hint="@string/tomin"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/tomi"
+        android:id="@+id/imageView2"
+        android:layout_marginEnd="18dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/negro"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="@string/tominpuerco"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2" />
+
+
+    <!-- <android.support.design.widget.FloatingActionButton
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:src="@android:color/transparent"
+         android:visibility="visible"
+         app:backgroundTint="@color/verde"
+         app:fabSize="normal"
+         android:layout_marginStart="51dp"
+         android:id="@+id/floatingActionButton"
+         android:layout_centerVertical="true"
+         android:layout_alignParentStart="true" />
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:text="@string/siguiente"
+         android:elevation="16dp"
+         android:textColor="@android:color/black"
+         android:textAppearance="?android:attr/textAppearanceMedium"
+         android:layout_alignBottom="@+id/floatingActionButton"
+         android:layout_alignStart="@+id/floatingActionButton" />-->
+
+
+
+</RelativeLayout>

@@ -1,0 +1,16 @@
+package com.amucss.mx.amucss;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class Tiempos_Usuario extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tiempos__usuario);
+
+
+
+    }
+}
