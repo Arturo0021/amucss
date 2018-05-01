@@ -10,16 +10,18 @@ public class Tiempos {
     public String Clave;
     public String Fecha;
     public String Pantalla;
+    public String Foco;
 
     public Tiempos() {
 
     }
 
-    public Tiempos(Integer id, String clave, String fecha, String pantalla) {
+    public Tiempos(Integer id, String clave, String fecha, String pantalla, String foco) {
         Id = id;
         Clave = clave;
         Fecha = fecha;
         Pantalla = pantalla;
+        Foco = foco;
     }
 
     public Integer getId() {
@@ -52,5 +54,13 @@ public class Tiempos {
 
     public void setPantalla(String pantalla) {
         Pantalla = pantalla;
+    }
+
+    public String getFoco() {
+        return Foco;
+    }
+
+    public void setFoco(String foco) {
+        Foco = foco;
     }
 }

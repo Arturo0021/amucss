@@ -36,6 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ACTIVO = "Activo";
     public static final String COLUMN_FECHA = "Fecha";
     public static final String COLUMN_TEXTO = "Texto";
+    public static final String COLUMN_FOCO = "Foco";
 
 
     public DBHelper(Context context) {
@@ -95,7 +96,8 @@ public class DBHelper extends SQLiteOpenHelper {
                         + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + COLUMN_CLAVE + " INTEGER, "
                         + COLUMN_FECHA + " VARCHAR, "
-                        + COLUMN_TEXTO + " VARCHAR "
+                        + COLUMN_TEXTO + " VARCHAR, "
+                        + COLUMN_FOCO + " VARCHAR "
                     + ");";
         db.execSQL(Table_Usuarios);
     }

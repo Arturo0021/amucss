@@ -24,6 +24,8 @@ import java.util.Locale;
 public class Lobby_Activity extends AppCompatActivity {
 
     ImageView imageView2;
+    ImageView modulo1;
+    ImageView modulo2;
     String clave;
     String pantalla;
     String date;
@@ -39,8 +41,10 @@ public class Lobby_Activity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // Rota horizontal
         context = this;
         clave = getIntent().getStringExtra("clave");
-        pantalla = "Inicio";
+        pantalla = "Lobby";
         imageView2 = (ImageView) findViewById(R.id.imageView2);
+        modulo1 = (ImageView) findViewById(R.id.modulo1);
+        modulo2 = (ImageView) findViewById(R.id.modulo2);
         botonsito = (Button)findViewById(R.id.botonsito);
         date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy HH:mm:ss", new java.util.Date()));
         tiempos.setClave(clave);
@@ -48,7 +52,7 @@ public class Lobby_Activity extends AppCompatActivity {
         tiempos.setPantalla(pantalla);
 
         try {
-
+            tiempos.setFoco("Entrada");
             com.amucss.mx.amucss.business.Tiempos.Insert(context, tiempos);
 
         } catch (Exception e) {
@@ -58,23 +62,48 @@ public class Lobby_Activity extends AppCompatActivity {
         botonsito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tiemposCollection = com.amucss.mx.amucss.business.Tiempos.tiempos(context,clave);
-                Toast.makeText(context, "" + tiemposCollection.get(0).Pantalla, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(Lobby_Activity.this, Tiempos_List.class);
+                intent.putExtra("clave", clave);
+                startActivity(intent);
+                //Toast.makeText(context, "" + tiemposCollection.get(0).Fecha, Toast.LENGTH_SHORT).show();
             }
         });
 
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
 
+                /*try {
+                    date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy HH:mm:ss", new java.util.Date()));
+                    tiempos.setFecha(date);
+                    tiempos.setFoco("Salida");
                     com.amucss.mx.amucss.business.Tiempos.Insert(context, tiempos);
 
                 } catch (Exception e) {
                     e.getMessage();
-                }
+                }*/
 
                 Intent i = new Intent(Lobby_Activity.this, Pregunta_Activity.class);
+                i.putExtra("clave", clave);
+                startActivity(i);
+            }
+        });
+
+        modulo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Lobby_Activity.this, Modulo_dos.class);
+                i.putExtra("clave", clave);
+                startActivity(i);
+            }
+        });
+
+        modulo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Lobby_Activity.this, Modulo_tres.class);
+                i.putExtra("clave", clave);
                 startActivity(i);
             }
         });

@@ -22,7 +22,10 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".Lobby_Activity" />
         <activity android:name=".Pregunta_Activity" />
-        <activity android:name=".Tiempos_Usuario"></activity>
+        <activity android:name=".Tiempos_Usuario" />
+        <activity android:name=".Tiempos_List" />
+        <activity android:name=".Modulo_dos" />
+        <activity android:name=".Modulo_tres"></activity>
     </application>
 
 </manifest>

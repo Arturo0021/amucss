@@ -1,15 +1,21 @@
 package com.amucss.mx.amucss;
 
 import android.content.Context;
-import android.content.pm.ActivityInfo;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
+import android.widget.VideoView;
 
 import com.amucss.mx.amucss.entities.Tiempos;
 
-public class Pregunta_Activity extends AppCompatActivity {
+public class Modulo_tres extends AppCompatActivity {
+
+    VideoView video_press;
+    Button bt_ver;
     String clave;
     String pantalla;
     String date;
@@ -19,13 +25,11 @@ public class Pregunta_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pregunta_);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // Rota horizontal
+        setContentView(R.layout.activity_modulo_tres);
         context = this;
         clave = getIntent().getStringExtra("clave");
         date = String.valueOf(android.text.format.DateFormat.format("dd-MM-yyyy HH:mm:ss", new java.util.Date()));
-        pantalla = "Introduccion";
-
+        pantalla = "Modulo 2";
         tiempos.setClave(clave);
         tiempos.setFecha(date);
         tiempos.setPantalla(pantalla);
@@ -37,6 +41,20 @@ public class Pregunta_Activity extends AppCompatActivity {
         } catch (Exception e) {
             e.getMessage();
         }
+
+        video_press = (VideoView)findViewById(R.id.video_press);
+        bt_ver = (Button)findViewById(R.id.bt_ver);
+
+        bt_ver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videourl = "/mnt/sdcard/Download/Abc.mp4";
+                Uri uri = Uri.parse(videourl);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setDataAndType(uri, "video/mp4");
+                startActivity(intent);
+            }
+        });
 
     }
 

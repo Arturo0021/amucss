@@ -22,11 +22,16 @@ public class Tiempos {
                             + "("
                                 + DBHelper.COLUMN_CLAVE + ", "
                                 + DBHelper.COLUMN_FECHA + ", "
-                                + DBHelper.COLUMN_TEXTO
-                            + ") VALUES ("
+                                + DBHelper.COLUMN_TEXTO + ", "
+                                + DBHelper.COLUMN_FOCO
+                            + ") SELECT "
                                 + "'" + tiempos.getClave() + "', "
                                 + "'" + tiempos.getFecha() + "', "
-                                + "'" + tiempos.getPantalla() + "');";
+                                + "'" + tiempos.getPantalla() + "',"
+                                + "'" + tiempos.getFoco() + "'"
+                                            + " WHERE NOT EXISTS ("
+                                            + "SELECT 1 FROM " + DBHelper.TABLE_TIEMPOLAYOUT + " WHERE "
+                                            + DBHelper.COLUMN_FECHA + " = '" + tiempos.getFecha() + "');";
         db.execSQL(insert);
 
     }
@@ -37,7 +42,8 @@ public class Tiempos {
 
         String consulta = "SELECT "
                                 + DBHelper.COLUMN_FECHA + ", "
-                                + DBHelper.COLUMN_TEXTO
+                                + DBHelper.COLUMN_TEXTO + ", "
+                                + DBHelper.COLUMN_FOCO
                                 + " FROM " + DBHelper.TABLE_TIEMPOLAYOUT
                                 + " WHERE " + DBHelper.COLUMN_CLAVE + " = '" + clave + "'";
         Cursor cursor = db.rawQuery(consulta, null);
@@ -46,6 +52,7 @@ public class Tiempos {
                 com.amucss.mx.amucss.entities.Tiempos tiempos = new com.amucss.mx.amucss.entities.Tiempos();
                 tiempos.setFecha(cursor.getString(0));
                 tiempos.setPantalla(cursor.getString(1));
+                tiempos.setFoco(cursor.getString(2));
                 tiemposCollection.add(tiempos);
             } while (cursor.moveToNext());
         }
